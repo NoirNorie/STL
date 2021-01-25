@@ -1,0 +1,5 @@
+﻿  Point.cpp
+F:\학교\Project\C++STL\STL\STL010\STL010\Point.cpp(49): warning C4172: 지역 변수 또는 임시: spot의 주소를 반환하고 있습니다.
+F:\학교\Project\C++STL\STL\STL010\STL010\Point.cpp(69): warning C4172: 지역 변수 또는 임시: spot의 주소를 반환하고 있습니다.
+  STL010.cpp
+  STL010.vcxproj -> F:\학교\Project\C++STL\STL\STL010\Debug\STL010.exe
