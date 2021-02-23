@@ -41,14 +41,14 @@ int main()
     // 1번 인자는 삽입된 원소의 위치를 가리키는 반복자
     // 2번 인자는 성공, 실패를 나타내는 bool 값이다.
 
-    pair<set<int>::iterator, bool> pr;
+    pair<set<int>::iterator, bool> pr1;
 
-    pr = s.insert(50); // 이미 존재하는 원소 50을 삽입
+    pr1 = s.insert(50); // 이미 존재하는 원소 50을 삽입
     s.insert(20);
     s.insert(80);
 
-    if (true == pr.second) cout << *pr.first << " : 성공" << endl;
-    else cout << *pr.first << " : 중복" << endl;
+    if (true == pr1.second) cout << *pr1.first << " : 성공" << endl;
+    else cout << *pr1.first << " : 중복" << endl;
 
     for (iter = s.begin(); iter != s.end(); iter++)
     {
@@ -56,16 +56,45 @@ int main()
     }
     cout << endl;
 
-    pr = s.insert(50); // 이미 존재하는 원소 50을 삽입
+    pr1 = s.insert(50); // 이미 존재하는 원소 50을 삽입
 
-    if (true == pr.second) cout << *pr.first << " : 성공" << endl;
-    else cout << *pr.first << " : 중복" << endl;
+    if (true == pr1.second) cout << *pr1.first << " : 성공" << endl;
+    else cout << *pr1.first << " : 중복" << endl;
 
     for (iter = s.begin(); iter != s.end(); iter++)
     {
         cout << *iter << " ";
     }
+    cout << endl << endl;
+
+    /*
+        insert 함수는 반복자로 탐색 시작 위치를 지정해 빠르게 원소를 삽입할 수 있다.
+    */
+
+    set<int> s2;
+    pair<set<int>::iterator, bool> pr2;
+
+    s2.insert(50); s2.insert(30); s2.insert(80); s2.insert(40); s2.insert(10); s2.insert(70);
+    pr2 = s2.insert(90);
+
+    set<int>::iterator iter2;
+    for (iter2 = s2.begin(); iter2 != s2.end(); iter2++)
+    {
+        cout << *iter2  << " ";
+    }
     cout << endl;
+
+    s2.insert(pr2.first, 85);
+    // pr.first(반복자)가 가리키는 위치에서 탐색을 시작하고 삽입한다.
+    // 처음부터 찾아갈 필요가 없으므로 상대적으로 빠르다.
+
+    for (iter2 = s2.begin(); iter2 != s2.end(); iter2++)
+    {
+        cout << *iter2 << " ";
+    }
+    cout << endl;
+
+
 
     return 0;
 }
