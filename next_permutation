@@ -1,0 +1,43 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	// 사전 순으로 알아서 출력해준다.
+	int a[3] = { 1,2,3 };
+	do {
+		for (int i = 0; i < 3; i++)
+		{
+			cout << a[i];
+		}
+		cout << '\n';
+	} while (next_permutation(a, a + 3));
+
+	cout << '\n';
+
+	// 중복된 경우도 알아서 처리해줌
+	int v[3] = { 1,1,2 };
+	do {
+		for (int i = 0; i < 3; i++)
+		{
+			cout << v[i];
+		}
+		cout << '\n';
+	} while (next_permutation(v, v + 3));
+
+	cout << '\n';
+
+	// 조합 = 5개중 3개 뽑는 경우
+  // 비슷하게 1개 ~ n개 뽑는 경우도 반복문으로 처리가 가능함
+	int b[5] = { 0,0,0,1,1 };
+	do {
+		for (int i = 0; i < 5; i++)
+		{
+			if (b[i] == 0) cout << i + 1;
+		}
+		cout << '\n';
+	} while (next_permutation(b, b + 4));
+
+	return 0;
+}
